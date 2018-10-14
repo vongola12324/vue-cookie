@@ -1,11 +1,8 @@
-var elixir = require('laravel-elixir');
+/* eslint-disable import/no-extraneous-dependencies */
+const elixir = require('laravel-elixir');
 
-require('laravel-elixir-webpack-official');
+require('laravel-elixir-vue-2');
 
-require('laravel-elixir-vue');
-
-elixir(function(mix) {
-
+elixir((mix) => {
     mix.webpack('vue-cookie-spec.js', 'test/bundle.js', 'test/spec');
-
 });

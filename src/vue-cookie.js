@@ -1,45 +1,43 @@
-(function () {
-    Number.isInteger = Number.isInteger || function (value) {
-        return typeof value === 'number' &&
-            isFinite(value) &&
-            Math.floor(value) === value;
-    };
-    var Cookie = require('tiny-cookie');
+import * as Cookies from 'tiny-cookie';
 
-    var VueCookie = {
+const VueCookie = {
+    install: function _install(Vue) {
+        /* eslint-disable no-param-reassign */
+        Vue.prototype.$cookie = this;
+        Vue.cookie = this;
+        /* eslint-enable no-param-reassign */
+    },
+    isEnabled() {
+        return Cookies.isEnabled();
+    },
+    set(key, value, options = null) {
+        Cookies.set(key, value, options);
+    },
+    setRaw(key, value, options = null) {
+        Cookies.setRaw(key, value, options);
+    },
+    get(key) {
+        return Cookies.get(key);
+    },
+    getAll() {
+        return Cookies.getAll();
+    },
+    getRaw(key) {
+        return Cookies.getRaw(key);
+    },
+    remove(key, options = null) {
+        Cookies.remove(key, options);
+    },
+    flush() {
+        const cookieKeys = Object.keys(this.getAll());
+        const that = this;
+        cookieKeys.forEach((element) => {
+            that.remove(element);
+        });
+    },
+};
 
-        install: function (Vue) {
-            Vue.prototype.$cookie = this;
-            Vue.cookie = this;
-        },
-        set: function (name, value, daysOrOptions) {
-            var opts = daysOrOptions;
-            if(Number.isInteger(daysOrOptions)) {
-                opts = {expires: daysOrOptions};
-            }
-            return Cookie.set(name, value, opts);
-        },
+module.exports = VueCookie;
 
-        get: function (name) {
-            return Cookie.get(name);
-        },
-
-        delete: function (name, options) {
-            var opts = {expires: -1};
-            if(options !== undefined) {
-                opts = Object.assign(options, opts);
-            }
-            this.set(name, '', opts);
-        }
-    };
-
-    if (typeof exports == "object") {
-        module.exports = VueCookie;
-    } else if (typeof define == "function" && define.amd) {
-        define([], function(){ return VueCookie; })
-    } else if (window.Vue) {
-        window.VueCookie = VueCookie;
-        Vue.use(VueCookie);
-    }
-
-})();
+// Allow use of default import syntax in TypeScript
+module.exports.default = VueCookie;

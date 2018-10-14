@@ -1,30 +1,34 @@
 {
-  "name": "vue-cookie",
-  "version": "1.1.4",
+  "name": "vue-cookie2",
+  "version": "1.0.0",
   "description": "A Vue.js plugin for manipulating cookies",
-  "author": "Alf Henderson <alfhenderson@gmail.com>",
+  "author": "Vongola <vongola12324@coder.tw>",
   "private": false,
   "main": "src/vue-cookie.js",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/testem/testem.js ci",
-    "test-dev": "./node_modules/testem/testem.js -f dev.testem.json",
+    "test": "testem ci",
+    "test:dev": "testem -f dev.testem.json",
     "build": "gulp --production",
-    "build-test": "gulp --gulpfile test.gulpfile.js"
+    "build:test": "gulp --gulpfile test.gulpfile.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alfhen/vue-cookie.git"
+    "url": "https://github.com/vongola12324/vue-cookie.git"
   },
   "dependencies": {
-    "tiny-cookie": "^1.0"
+    "tiny-cookie": "^2.0",
+    "vue": "^2.5.17"
   },
   "devDependencies": {
-    "jasmine": "^2.5.2",
-    "laravel-elixir": "^6.0.0-13",
-    "laravel-elixir-vue": "^0.1.8",
-    "laravel-elixir-webpack-official": "^1.0.9",
-    "testem": "~1.8",
-    "vue": "^2.0.5"
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "gulp": "^3.9.1",
+    "jasmine": "^3.2.0",
+    "laravel-elixir": "^6.0.0-18",
+    "laravel-elixir-vue-2": "^0.3.0",
+    "laravel-elixir-webpack-official": "^1.0.10",
+    "testem": "^2.13.0"
   }
 }
