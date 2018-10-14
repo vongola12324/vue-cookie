@@ -1,20 +1,18 @@
-# vue-cookie [![CircleCI](https://circleci.com/gh/alfhen/vue-cookie.svg?style=svg)](https://circleci.com/gh/alfhen/vue-cookie)
-A Vue.js plugin for manipulating cookies tested up to ```Vue v2.0.5```
+# vue-cookie2
+A Vue.js plugin for manipulating cookies tested up to ```Vue v2.5.17```
 
 ## Installation
 
 Install through npm
 
 ``` bash
-npm install vue-cookie --save
-
+npm install vue-cookie2 --save
 ```
 
 Include in ```<body>``` after loading Vue and it will automatically hook into Vue
 
 ``` html
 <script src="/node_modules/vue-cookie/build/vue-cookie.js'"></script>
-
  ```
 
 Or do it the cool way and load it in your ```main.js/app.js```
@@ -22,10 +20,9 @@ Or do it the cool way and load it in your ```main.js/app.js```
 ``` javascript
 // Require dependencies
 var Vue = require('vue');
-var VueCookie = require('vue-cookie');
+var VueCookie = require('vue-cookie2');
 // Tell Vue to use the plugin
 Vue.use(VueCookie);
-
 ```
 
 ### Usage
@@ -43,8 +40,14 @@ this.$cookie.set('test', 'Hello world!', 1);
 // To get the value of a cookie use
 this.$cookie.get('test');
 
+// To get all cookies
+this.$cookie.getAll();
+
 // To delete a cookie use
-this.$cookie.delete('test');
+this.$cookie.remove('test');
+
+// Flush all cookies
+this.$cookie.flush();
 
 ```
 
@@ -55,7 +58,7 @@ this.$cookie.delete('test');
 this.$cookie.set('test', 'Random value', {expires: 1, domain: 'localhost'});
 
 // As this cookie is set with a domain then if you wish to delete it you have to provide the domain when calling delete
-this.$cookie.delete('test', {domain: 'localhost'});
+this.$cookie.remove('test', {domain: 'localhost'});
 
 // Customizing expires
 var date = new Date;
@@ -70,6 +73,12 @@ this.$cookie.set('stringSuffixD', 'One day later', { expires: '1D' });
 this.$cookie.set('stringSuffixh', 'One hour later', { expires: '1h' });
 this.$cookie.set('stringSuffixm', 'Ten minutes later', { expires: '10m' });
 this.$cookie.set('stringSuffixs', 'Thirty seconds later', { expires: '30s' });
+
+// Raw Data
+// We'll using encodeURIComponent/decodeURIComponent on set/get.
+// You can set/get raw data by using setRaw/getRaw. 
+this.$cookie.setRaw('dateObject', 'A date object', { expires: date });
+this.$cookie.getRaw('dataObject');
 
 ```
 
