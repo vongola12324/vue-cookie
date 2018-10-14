@@ -1,6 +1,6 @@
 {
   "name": "vue-cookie2",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A Vue.js plugin for manipulating cookies",
   "author": "Vongola <vongola12324@coder.tw>",
   "private": false,
