@@ -1,4 +1,6 @@
-import * as Cookies from 'tiny-cookie';
+import {
+    isCookieEnabled, getCookie, getRawCookie, getAllCookies, setCookie, setRawCookie, removeCookie,
+} from 'tiny-cookie';
 
 const VueCookie = {
     install: function _install(Vue) {
@@ -8,25 +10,25 @@ const VueCookie = {
         /* eslint-enable no-param-reassign */
     },
     isEnabled() {
-        return Cookies.isEnabled();
+        return isCookieEnabled();
     },
     set(key, value, options = null) {
-        Cookies.set(key, value, options);
+        setCookie(key, value, options);
     },
     setRaw(key, value, options = null) {
-        Cookies.setRaw(key, value, options);
+        setRawCookie(key, value, options);
     },
     get(key) {
-        return Cookies.get(key);
+        return getCookie(key);
     },
     getAll() {
-        return Cookies.getAll();
+        return getAllCookies();
     },
     getRaw(key) {
-        return Cookies.getRaw(key);
+        return getRawCookie(key);
     },
     remove(key, options = null) {
-        Cookies.remove(key, options);
+        removeCookie(key, options);
     },
     flush() {
         const cookieKeys = Object.keys(this.getAll());
