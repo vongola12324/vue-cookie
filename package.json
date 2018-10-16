@@ -6,6 +6,11 @@
   "private": false,
   "main": "build/vue-cookie.js",
   "license": "MIT",
+  "keywords": [
+    "VueJS",
+    "Cookie",
+    "vue-cookie"
+  ],
   "scripts": {
     "test": "testem ci",
     "test:dev": "testem -f dev.testem.json",
