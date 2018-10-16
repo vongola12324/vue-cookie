@@ -1,16 +1,17 @@
 {
-  "name": "vue-cookie",
+  "name": "vue-cookie2",
   "description": "A Vue.js plugin for manipulating cookies",
-  "main": "src/vue-cookie.js",
+  "main": "build/vue-cookie.js",
   "authors": [
-    "Alf Henderson <alfhenderson@gmail.com>"
+    "Vongola <vongola12324>"
   ],
   "license": "MIT",
   "keywords": [
     "VueJS",
-    "Cookie"
+    "Cookie",
+    "vue-cookie"
   ],
-  "homepage": "https://github.com/alfhen/vue-cookie",
+  "homepage": "https://github.com/vongola12324/vue-cookie",
   "ignore": [
     "**/.*",
     "node_modules",
