@@ -4,7 +4,7 @@
   "description": "A Vue.js plugin for manipulating cookies",
   "author": "Vongola <vongola12324@coder.tw>",
   "private": false,
-  "main": "build/vue-cookie.js",
+  "main": "src/vue-cookie.js",
   "license": "MIT",
   "keywords": [
     "VueJS",
