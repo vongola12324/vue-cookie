@@ -39,7 +39,4 @@ const VueCookie = {
     },
 };
 
-module.exports = VueCookie;
-
-// Allow use of default import syntax in TypeScript
-module.exports.default = VueCookie;
+export default VueCookie;
