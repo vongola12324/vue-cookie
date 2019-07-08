@@ -31,11 +31,11 @@ import {
 	remove(key, options = null) {
 	    removeCookie(key, options);
 	},
-	flush() {
+	flush(options = null) {
 	    const cookieKeys = Object.keys(this.getAll());
 	    const that = this;
 	    cookieKeys.forEach((element) => {
-		that.remove(element);
+		that.remove(element, options);
 	    });
 	},
     };
